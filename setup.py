@@ -18,7 +18,7 @@
 
 import platform
 
-from setuptools import setup
+from setuptools import find_packages, setup
 
 # Configure the required packages and scripts to install, depending on
 # Python version and OS.
@@ -34,9 +34,6 @@ if py_version < '2.6':
     REQUIRED_PACKAGES.append('simplejson')
 
 _PROTORPC_VERSION = '0.12.0'
-packages = [
-    'protorpc',
-]
 
 setup(
     name='protorpc',
@@ -46,7 +43,7 @@ setup(
     author='Google Inc.',
     author_email='rafek@google.com',
     # Contained modules and scripts.
-    packages=packages,
+    packages=find_packages(),
     entry_points={
         'console_scripts': CONSOLE_SCRIPTS,
     },
